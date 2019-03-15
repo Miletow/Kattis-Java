@@ -5,24 +5,22 @@ public class ABC {
 
     public static void main(String[] args) {
        Scanner sc = new Scanner(System.in);
-		while (sc.hasNextLine()) {
+		
 		int a = sc.nextInt();
 		int b = sc.nextInt();
 		int c = sc.nextInt();
 
 		int Numbers[] = {a, b, c};
 
-		char aS = sc.next().charAt(0);
-		char bS = sc.next().charAt(0);
-		char cS = sc.next().charAt(0);
+		String Word = sc.next();
 
-		char Letters[] = {aS, bS, cS};
+		
 
-		ABC(Numbers, Letters);
-			}
+		ABC(Numbers, Word);
+		
     }
 	
-	public static void ABC(int Numbers[],char Letters[]){
+	public static void ABC(int Numbers[], String Word){
 		
 		Arrays.sort(Numbers);
 
@@ -30,15 +28,24 @@ public class ABC {
 		int B = Numbers[1];
 		int C = Numbers[2];
 
+		char[] Letters = Word.toCharArray();
+
+		int counter = 0;
+		String Result = "";
 		for (char var : Letters) 
 		{ 
+			counter++;
 			if(var == 'A')
-			System.out.print(A + " ");
+			Result += A;
 			else if(var == 'B')
-			System.out.print(B + " ");
+			Result += B;
 			else if(var == 'C')
-			System.out.print(C + " ");
+			Result += C;
+			
+			if(counter == 3)
+			break;
+			Result += " ";
 		}
+		System.out.println(Result);
 	}
-
 }
